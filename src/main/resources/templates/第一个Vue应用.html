@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>第一个Vue应用</title>
 </head>
+
 <body>
-$END$
+<!--在一个容器中引用Vue对象-->
+<div id="app">
+       {{msg}}
+</div>
+
+
 </body>
+<script src="vue/vue.js">
+    //定义一个Vue对象
+    var app = new Vue({
+        //声明一个挂下载点
+        el: '#app',
+        //Vue要处理的数据
+        data:{
+            msg:'这是一个Vue应用'
+        }
+    });
+
+</script>
 </html>
