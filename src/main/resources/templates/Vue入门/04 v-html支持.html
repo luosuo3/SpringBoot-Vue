@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html</title>
+    <script src="../../static/vue/vue.js"></script>
+</head>
+<body>
+<div id="ap">
+    <h2 v-text="message"></h2>
+    <h2>{{message}}</h2>
+    <h2 v-html="message"></h2>
+</div>
+
+</body>
+<script >
+    //定义一个Vue对象
+    var app = new Vue({
+        //声明一个挂下载点
+        el: '#ap',
+        //Vue要处理的数据
+        data:{
+            message:'<a href="https:www.baidu.com">baidu</a>'
+
+        }
+    });
+
+</script>
+</html>

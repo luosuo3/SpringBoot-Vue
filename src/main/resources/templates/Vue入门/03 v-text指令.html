@@ -2,25 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>第一个Vue应用</title>
+    <title>v-text指令</title>
 </head>
+<script src="../../static/vue/vue.js"></script>
 
 <body>
-<!--在一个容器中引用Vue对象-->
-<div id="app">
-       {{msg}}
+<div id="ap">
+    <h2 v-text="message+'在黄骅'"></h2>
+    <h2>{{message}}</h2>
 </div>
-
-
 </body>
-<script src="vue/vue.js">
+<script >
     //定义一个Vue对象
     var app = new Vue({
         //声明一个挂下载点
-        el: '#app',
+        el: '#ap',
         //Vue要处理的数据
         data:{
-            msg:'这是一个Vue应用'
+            message:'海滨学院'
         }
     });
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>第一个Vue应用</title>
+    <script src=""></script>
+    <script src="../../static/vue/vue.js"></script>
+</head>
+<body>
+<!--在一个容器中引用Vue对象-->
+<div id="ap" class="ap">
+       {{msg}}
+</div>
+
+<span id="app-2" v-bind:title="message">
+   悬停几秒查看信息
+</span>
+
+</body>
+<script >
+    //定义一个Vue对象
+    var app = new Vue({
+        //声明一个挂下载点
+        el: '#ap',
+        //Vue要处理的数据
+        data:{
+            msg:'为啥不显示啊'
+        }
+    });
+    var app2 = new Vue({
+        el:'#app-2',
+        data:{
+            message:'页面加载于'+new Date().toLocaleString()
+        }
+    });
+
+</script>
+</html>

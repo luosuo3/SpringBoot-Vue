@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+</head>
+<script src="../../static/vue/vue.js"></script>
+<body>
+<div id="ap">
+    <input type="button" value="单击" v-on:dblclick="doSomething">
+    <input type="button" value="双击" v-on:click="doSomething">
+    <input type="button" value="滑动" v-on:mousemove="doSomething">
+    <input type="button" value="单击" @close="doSomething">
+    <input type="button" value="双击" @dblclick="doSomething">
+    <input type="button" value="滑动" @mousemove="doSomething">
+    <br>
+    {{message}} <button value="改变11" @click="changeval"></button>
+
+</div>
+</body>
+<script >
+    //定义一个Vue对象
+    var app = new Vue({
+        //声明一个挂下载点
+        el: '#ap',
+        //Vue要处理的数据
+        data:{
+            message:'海滨学院'
+        },
+        methods:{
+            doSomething:function () {
+                console.log("输出日志"+new Date())
+            },
+            changeval:function () {
+                 this.message="改变"
+            }
+        }
+    });
+
+</script>
+</html>

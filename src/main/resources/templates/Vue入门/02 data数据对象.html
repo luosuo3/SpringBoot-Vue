@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>data数据对象</title>
+    <script src=""></script>
+    <script src="../../static/vue/vue.js"></script>
+</head>
+<body>
+<!--在一个容器中引用Vue对象-->
+<div id="ap">
+    {{msg}}
+    {{school.name}}-{{school.address}}
+    <ul>
+        <li>{{institute[0]}}</li>
+        <li>{{institute[1]}}</li>
+        <li>{{institute[2]}}</li>
+        <li>{{institute[3]}}</li>
+    </ul>
+
+</div>
+
+
+</body>
+<script >
+    //定义一个Vue对象
+    var app = new Vue({
+        //声明一个挂下载点
+        el: '#ap',
+        //Vue要处理的数据
+        data:{
+            msg: '你好',
+            school:{
+                name:'海滨学院',
+                address:'黄骅市'
+            },
+            institute:['计算机','土木','经管','机械']
+        }
+
+    });
+
+</script>
+</html>
