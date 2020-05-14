@@ -15,15 +15,15 @@ import java.util.Scanner;
 public class Test  {
  
 	private static String Str = null; // 输入的表达式
-	private static String lookahead = null;// 当前记号
+	private static String lookahead = null;// 当前记号符号串
 	private static String Sub = null;// 剩余的子串
-	//private static boolean flag = false;
- 
 	public static void match(String s) {
 		if (lookahead.equals(s)) {
  
 			lookahead = nextToken();
+			System.out.println("分析串"+s);
 			System.out.println("匹配" + s);
+			System.out.println("___________________________");
 		} else {
 			error();
 		}
@@ -32,7 +32,7 @@ public class Test  {
  
 	public static void error() {
 		System.out.println("匹配失败");
- 
+
 	}
  
 	public static String nextToken() {
@@ -51,27 +51,26 @@ public class Test  {
 	}
  
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
- 
+
 		Scanner in = new Scanner(System.in);
-		System.out.println("请输入一个表达式：");
+		System.out.println("请输入一个表达式,#号结束：");
 		Str = in.nextLine();
 		Sub = Str;
 		lookahead = nextToken();
 		in.close();
-		E();
+		E();//开始符
 	}
  
 	public static void E() {
-		if (lookahead.equals("(") || lookahead.equals("id"))// First(T)={(,id};
+		if (lookahead.equals("(") || lookahead.equals("id"))
 		{
 			System.out.println("E -> TE'");
 			T();
 			E1();
-		} else if (lookahead.equals(")") || lookahead.equals("#"))// Follow(E')加入到E的同步记号集合中
+		} else if (lookahead.equals(")") || lookahead.equals("#"))
 		{
 			error();
-			// 出错，但不作任何处理
+
 		} else {
 			lookahead = nextToken();
 			error();
@@ -81,18 +80,18 @@ public class Test  {
  
 	public static void E1() {
 		if (lookahead.equals("+")) {
-			System.out.println("E1 -> TE'");
+			System.out.println("E1 -> + TE'");
 			match("+");
 			T();
 			E1();
 		} else if (lookahead.equals(")") || lookahead.equals("#"))
-		// Follow(E') = { ) , # };
+
 		{
 			System.out.println("E' -> ^");
 			if (lookahead.equals("#"))
 				{match("#");System.exit(0);}
  
-		} else// 出错，当前记号不在E'的同步记号集合中，跳过当前符号
+		} else
 		{
 			error();
 			lookahead = nextToken();
@@ -101,22 +100,22 @@ public class Test  {
 	}
  
 	public static void T() {
-		if (lookahead.equals("(") || lookahead.equals("id"))// First(F)={ ( , id };
+		if (lookahead.equals("(") || lookahead.equals("id"))
 		{
 			System.out.println("T -> FT'");
 			F();
 			T1();
 		} else if (lookahead.equals("+") || lookahead.equals(")") || lookahead.equals("#"))
-		// Follow(T)加入到T的同步记号集合中
+
 		{
 			error();
 			if (lookahead.equals("#")) {
 				match("#");
 				System.exit(0);
 			}
-			// 出错，但无需跳过任何记号，跳过T即可，即不做任何处理
+
 		} else {
-			// 出错，当前记号不在T的同步记号集合中，跳过当前记号
+
 			error();
 			lookahead = nextToken();
 			T();
@@ -136,7 +135,7 @@ public class Test  {
 				match("#");
 				System.exit(0);
 			}
-		} else// 出错，当前记号不在T1的同步记号集合中，跳过当前记号
+		} else
 		{
 			error();
 			lookahead = nextToken();
@@ -155,16 +154,17 @@ public class Test  {
 			System.out.println("F -> id");
 			match("id");
 		} else if (lookahead.equals("+") || lookahead.equals("*") || lookahead.equals(")") || lookahead.equals("#"))
-		// Follow(F)集合加入到F的同步记号集合中
+
 		{
 			error();
-			// 出错，但无须跳过任何记号，跳过 F 即可，即不作任何处理
-		} else// 出错，当前记号不在F的同步记号集合中，跳过当前符号
+
+		} else
 		{
 			error();
 			lookahead = nextToken();
 			F();
 		}
+		
 	}
  
 }

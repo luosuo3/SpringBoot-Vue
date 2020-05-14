@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind 指令</title>
+    <script src="../../static/vue/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <img  v-bind:src="imageURL" alt="">
+    <input type="button" value="切换学校图片" @click="doSomething1">
+    <input type="button" value="切换学院图片" @click="doSomething2">
+</div>
+
+</body>
+<script>
+    //1、定义一个Vue对象
+    var app=new Vue({
+        //2、声明一个挂载点
+        el:'#app',
+        //3、定义vue要处理的数据
+        data:{
+            imageURL:"http://www.bjtuhbxy.cn/img/logo.jpg"
+
+        },
+        //4、方法
+        methods:{
+            doSomething1:function () {
+                   this.imageURL="http://www.bjtuhbxy.cn/img/logo.jpg"
+            },
+            doSomething2:function () {
+                this.imageURL="http://computer.bjtuhbxy.edu.cn/images/xylogonew.png"
+            }
+        }
+        //5、vue各种钩子（生命周期函数）
+    });
+</script>
+</html>

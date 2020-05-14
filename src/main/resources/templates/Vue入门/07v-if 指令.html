@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if 指令</title>
+    <script src="../../static/vue/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <table border="1" width="400px">
+        <tr>
+            <td>张三</td>
+            <td v-if="sex===0">男</td>
+            <td v-if="sex===1">女</td>
+        </tr>
+    </table>
+    <input type="button" @click="doSomething" value="切换性别">
+
+
+</div>
+
+</body>
+<script>
+    //1、定义一个Vue对象
+    var app=new Vue({
+        //2、声明一个挂载点
+        el:'#app',
+        //3、定义vue要处理的数据
+        data:{
+           sex:0,
+
+        },
+        //4、方法
+        methods:{
+            doSomething:function () {
+                if (this.sex === 0) {
+                    this.sex = 1;
+                } else {
+                    this.sex = 0;
+                }
+
+            }
+        }
+        //5、vue各种钩子（生命周期函数）
+    });
+</script>
+</html>
