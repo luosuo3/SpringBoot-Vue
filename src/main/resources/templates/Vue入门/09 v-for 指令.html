@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for 指令</title>
+    <script src="../../static/vue/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <table border="1" width="400px">
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>性别</td>
+        </tr>
+        <tr v-for="(item,index) in students">
+            <td>{{index+1}}</td>
+            <td>{{item.name}}</td>
+            <td v-if="item.sex===0">男</td>
+            <td v-if="item.sex===1">女</td>
+        </tr>
+    </table>
+
+
+</div>
+
+</body>
+<script>
+    //1、定义一个Vue对象
+    var app=new Vue({
+        //2、声明一个挂载点
+        el:'#app',
+        //3、定义vue要处理的数据
+        data:{
+           students:[
+               {
+                   name:'张三',
+                   sex :0
+               },
+               {
+                   name:'李四',
+                   sex:1
+               }
+           ]
+
+        }
+    });
+</script>
+</html>

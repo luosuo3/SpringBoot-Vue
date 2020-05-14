@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model 指令</title>
+    <script src="../../static/vue/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <form action="">
+        姓名<input type="text" id="name" v-model="students.name">
+        年龄 <input type="text" id="age" v-model="students.age">
+    </form>
+    <br>
+    {{students.name}}
+    <br>
+    {{students.age}}
+    <br>
+    <input type="button" @click="doSomething" value="改变值">
+
+</div>
+
+</body>
+<script>
+    //1、定义一个Vue对象
+    var app = new Vue({
+        //2、声明一个挂载点
+        el: '#app',
+        //3、定义vue要处理的数据
+        data: {
+            students: [
+                {
+                    name: '张三',
+                    age: 22
+
+                }
+            ]
+
+        },
+        methods: {
+            doSomething: function () {
+                this.students.name = '李四'
+                this.students.age = 21
+            }
+        }
+
+    });
+</script>
+</html>
