@@ -40,7 +40,7 @@ public class UserServiceImlp implements UserLoginService {
 
     @Override
     public List<UserLogin> selectByExampleWithRowbounds(UserLoginExample example, RowBounds rowBounds) {
-        return  selectByExampleWithRowbounds(example, rowBounds);
+        return  userLoginMapper.selectByExampleWithRowbounds(example, rowBounds);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class UserServiceImlp implements UserLoginService {
 
     @Override
     public UserLogin selectByPrimaryKey(String userId) {
-        return selectByPrimaryKey(userId);
+        return userLoginMapper.selectByPrimaryKey(userId);
     }
 
     @Override
@@ -60,16 +60,16 @@ public class UserServiceImlp implements UserLoginService {
 
     @Override
     public int updateByExample(UserLogin record, UserLoginExample example) {
-        return updateByExample(record, example);
+        return userLoginMapper.updateByExample(record, example);
     }
 
     @Override
     public int updateByPrimaryKeySelective(UserLogin record) {
-        return updateByPrimaryKeySelective(record);
+        return userLoginMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
     public int updateByPrimaryKey(UserLogin record) {
-        return updateByPrimaryKey(record);
+        return userLoginMapper.updateByPrimaryKey(record);
     }
 }

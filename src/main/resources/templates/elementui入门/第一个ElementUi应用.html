@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+<head>
+    <meta charset="UTF-8">
+    <title>ElementUI应用</title>
+    <script src="../../static/vue/vue.js"></script>
+    <script src="../../static/element-ui/index.js"></script>
+    <link rel="stylesheet" href="../../static/element-ui/index.css">
+</head>
+
+<body>
+<div id="app">
+    <el-button type="primary" @click="visible=true">主要按钮</el-button>
+    <el-dialog
+            title="提示"
+            :visible.sync="visible"
+            width="30%"
+            :before-close="handleClose">
+        <span>这是一段信息</span>
+        <span slot="footer" class="dialog-footer"></span>
+    </el-dialog>
+
+
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:function () {
+            return{
+                visible:false
+            }
+        }
+    })
+</script>
+</html>

@@ -11,6 +11,14 @@ import java.util.Scanner;
 		T '-> * FT '| e
 
 		F -> (E) | id*/
+/*
+FIRST(E)=FIRST(T)=FIRST(F)={(,id}
+FIRST(E')={+,e}
+FIRST(T')={*,e}
+FOLLOW(E)=FOLLOW(E')={)}
+FOLLOW(T)=FOLLOW(T')={+,)}
+FOLLOW(F)={+,*,)}
+* */
  
 public class Test  {
  
@@ -60,7 +68,7 @@ public class Test  {
 		in.close();
 		E();//开始符
 	}
- 
+	//FIRST(E)=FIRST(T)=FIRST(F)={(,id}
 	public static void E() {
 		if (lookahead.equals("(") || lookahead.equals("id"))
 		{
@@ -133,7 +141,7 @@ public class Test  {
 			System.out.println("T' -> ^");
 			if (lookahead.equals("#")) {
 				match("#");
-				System.exit(0);
+
 			}
 		} else
 		{

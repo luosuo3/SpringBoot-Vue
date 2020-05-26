@@ -64,6 +64,24 @@ public class UserloginController {
         userLoginService.updateByPrimaryKeySelective(userLogin);
         return userLoginService.selectByPrimaryKey(userLogin.getUserId());
     }
+    //    重置用户密码
+    @RequestMapping(value = "/reset/{id}",method = RequestMethod.DELETE)
+    @ResponseBody
+    public  String reset(@PathVariable String id) {
+        UserLogin userLogin = new UserLogin();
+        userLogin.setUserId(id);
+        userLogin.setCurrentPassword("123456");
+        userLogin.setPasswordHint(123456);
+        try {
+
+            userLoginService.updateByPrimaryKey(userLogin);
+            return "200";
+        } catch (Exception e) {
+            return "500";
+        }
+
+    }
+
 //    删除用户
     @RequestMapping(value = "/users/{id}",method = RequestMethod.DELETE)
     @ResponseBody

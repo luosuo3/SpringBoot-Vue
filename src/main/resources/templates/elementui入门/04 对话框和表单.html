@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>el-dialog和el-form</title>
+    <link rel="stylesheet" href="../../static/element-ui/index.css">
+    <!--2.1 引入element ui css库-->
+</head>
+<body>
+<div id="app">
+    <!--element表格-->
+    <el-button type="primary" @click="adduser">注册用户</el-button>
+    <!--element对话框-->
+    <el-dialog
+            :title="dialog.title"
+            modal="true"
+            :visible.sync="dialog.visible"
+            style="width: 30%">
+        <el-form :model="myform">
+            <el-form-item label="姓名" require>
+                <el-input v-model="myform.name"></el-input>
+            </el-form-item>
+            <el-form-item label="地址">
+                <el-input v-model="myform.address"></el-input>
+            </el-form-item>
+        </el-form>
+
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="dialog.visible = false">取消</el-button>
+            <el-button type="primary" @click="">保存</el-button>
+        </div>
+    </el-dialog>
+</div>
+
+<script src="../../static/vue/vue.js"></script>
+<script src="../../static/element-ui/index.js"></script>
+
+<script>
+    var app=new Vue({
+        el:'#app',
+        data:function () {
+            return{
+                dialog:{
+                    title:'注册用户',
+                    visible:false
+                },
+                myform:{
+                    name:'',
+                    address:''
+                }
+            }
+        },
+        methods:{
+            adduser:function () {
+                this.dialog.title='注册用户';
+                    this.dialog.visible=true;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <script src="../../static/vue/vue.js"></script>
+    <script src="../../static/element-ui/index.js"></script>
+    <link rel="stylesheet" href="../../static/element-ui/index.css">
+</head>
+<body>
+<div id="app">
+    <el-table  :data="tableData" style="width: 60%">
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="address" label="地址"></el-table-column>
+    </el-table>
+</div>
+</body>
+<script>
+    var vue = new Vue({
+        el:'#app',
+        data:function () {
+            return{
+                tableData:[
+                    {
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1518 弄'
+                    }, {
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1517 弄'
+                    }, {
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1519 弄'
+                    }, {
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1516 弄'
+                    }
+                ]
+
+            }
+
+            }
+
+    })
+</script>
+</html>
